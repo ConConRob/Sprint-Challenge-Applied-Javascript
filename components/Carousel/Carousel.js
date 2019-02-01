@@ -1,16 +1,29 @@
 class Carousel {
   constructor(element) {
     this.element = element;
-    this.currentImg
+    this.currentImg = 0;
     // get the left and right button
     this.buttonLeft = this.element.querySelector('.left-button');
     this.buttonRight = this.element.querySelector('.right-button');
     // get a list of the images
     this.images = this.element.querySelectorAll('img')
-    console.log(this.images);
+    console.log(this.images.length);
     // add event listeners to the buttons
-    //this.buttonLeft.addEventListener('click', () =>)
+    this.buttonLeft.addEventListener('click', () => {
+      this.currentImg--;
+      if (this.currentImg === -1) {
+        this.currentImg = this.images.length - 1;
+      }
+    });
     console.log(this.buttonRight);
+  }
+
+  displayImg() {
+    this.images[this.currentImg].style.display = 'block';
+  }
+
+  hideImg() {
+    this.images[this.currentImg].style.display = 'block';
   }
 }
 
