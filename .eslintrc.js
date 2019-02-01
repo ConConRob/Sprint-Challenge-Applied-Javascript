@@ -10,5 +10,7 @@ module.exports = {
         "quotes": 0,
         "no-plusplus":0,
         "no-param-reassign":0,
+        "max-len":0,
+        "no-use-before-define":0,
     },
 };
