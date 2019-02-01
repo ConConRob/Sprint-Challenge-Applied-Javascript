@@ -6,16 +6,24 @@ class Carousel {
     this.buttonLeft = this.element.querySelector('.left-button');
     this.buttonRight = this.element.querySelector('.right-button');
     // get a list of the images
-    this.images = this.element.querySelectorAll('img')
-    console.log(this.images.length);
+    this.images = this.element.querySelectorAll('img');
     // add event listeners to the buttons
     this.buttonLeft.addEventListener('click', () => {
+      this.hideImg();
       this.currentImg--;
       if (this.currentImg === -1) {
         this.currentImg = this.images.length - 1;
       }
+      this.displayImg();
     });
-    console.log(this.buttonRight);
+    this.buttonRight.addEventListener('click', () => {
+      this.hideImg();
+      this.currentImg++;
+      if (this.currentImg === this.images.length) {
+        this.currentImg = 0;
+      }
+      this.displayImg();
+    });
   }
 
   displayImg() {
@@ -23,7 +31,7 @@ class Carousel {
   }
 
   hideImg() {
-    this.images[this.currentImg].style.display = 'block';
+    this.images[this.currentImg].style.display = 'none';
   }
 }
 
