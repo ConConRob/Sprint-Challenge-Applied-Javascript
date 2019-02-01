@@ -3,6 +3,7 @@ class Carousel {
     this.element = element;
     this.currentImg = 0;
     this.slideTime = 0.2;
+    this.slideDistance = 200;
     // get the left and right button
     this.buttonLeft = this.element.querySelector('.left-button');
     this.buttonRight = this.element.querySelector('.right-button');
@@ -39,19 +40,19 @@ class Carousel {
   }
 
   slideInLeft() {
-    TweenMax.fromTo(this.images[this.currentImg], this.slideTime, { x: 100, opacity: 0, display: 'none' }, { x: 0, opacity: 1, display: 'block' });
+    TweenMax.fromTo(this.images[this.currentImg], this.slideTime, { x: this.slideDistance, opacity: 0, display: 'none' }, { x: 0, opacity: 1, display: 'block' });
   }
 
   slideOutLeft() {
-    TweenMax.to(this.images[this.currentImg], this.slideTime, { x: -100, opacity: 0, display: 'none' });
+    TweenMax.to(this.images[this.currentImg], this.slideTime, { x: -this.slideDistance, opacity: 0, display: 'none' });
   }
 
   slideInRight() {
-    TweenMax.fromTo(this.images[this.currentImg], this.slideTime, { x: -100, opacity: 0, display: 'none' }, { x: 0, opacity: 1, display: 'block' });
+    TweenMax.fromTo(this.images[this.currentImg], this.slideTime, { x: -this.slideDistance, opacity: 0, display: 'none' }, { x: 0, opacity: 1, display: 'block' });
   }
 
   slideOutRight() {
-    TweenMax.to(this.images[this.currentImg], this.slideTime, { x: 100, opacity: 0, display: 'none' });
+    TweenMax.to(this.images[this.currentImg], this.slideTime, { x: this.slideDistance, opacity: 0, display: 'none' });
   }
 }
 // TweenMax.fromTo(element, 1, {css: {left: "100px", top: "100px"}}, {css:{left:"130px", top: "130px"}} )
